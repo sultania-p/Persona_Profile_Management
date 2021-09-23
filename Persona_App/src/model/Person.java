@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package model;
+import java.awt.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
 
 /**
  *
@@ -14,26 +19,62 @@ public class Person {
     private String FirstName;
     private String MiddleName;
     private String LastName;
-    private String MailingAddressLine1;
-    private String MailingAddressLine2;
+    private String MailingAddressLine;
     private String City;
     private String State;
     private Integer ZipCode;
     private String Country;
     private String DateOfBirth;
-    private Long TelephoneNumber;
-    private Long CellPhoneNumber;
+    private Integer TelephoneNumber;
+    private Integer CellPhoneNumber;
     private Integer FaxNumber;
     private String EmailAddress;
-    private Long SocialSecurityNumber;
+    private Integer SocialSecurityNumber;
     private String MedicalRecordNumber;
     private String HealthPlanBeneficiaryNumber;
-    private Long BankAccountNumber;
+    private Integer BankAccountNumber;
     private String CertificateOrLicenseNumber;
     private String VehicleIdentifiersAndSerialNumbers;
     private String DeviceIdentifiersAndSerialNumbers;
     private String LinkedInAddress;
     private String IPAddress;
+    private String Path;
+
+    public void getImage() {
+        JFrame editorFrame = new JFrame("Image Demo");
+        BufferedImage image = null;
+        try
+        {
+        image = ImageIO.read(new File(this.Path));
+        }
+        catch (Exception e)
+        {
+        e.printStackTrace();
+        System.exit(1);
+        }
+        ImageIcon imageIcon = new ImageIcon(fitimage(image, 500, 500));
+        JLabel jLabel = new JLabel();
+        jLabel.setIcon(imageIcon);
+        editorFrame.getContentPane().add(jLabel, BorderLayout.CENTER);
+
+        editorFrame.pack();
+        editorFrame.setLocationRelativeTo(null);
+        editorFrame.setVisible(true);
+    }
+    
+    private Image fitimage(Image img , int w , int h)
+        {
+            BufferedImage resizedimage = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2 = resizedimage.createGraphics();
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.drawImage(img, 0, 0,w,h,null);
+            g2.dispose();
+            return resizedimage;
+        }
+
+    public void setPath(String Path) {
+        this.Path = Path;
+    }
 
     public String getFirstName() {
         return FirstName;
@@ -59,20 +100,12 @@ public class Person {
         this.LastName = LastName;
     }
 
-    public String getMailingAddressLine1() {
-        return MailingAddressLine1;
+    public String getMailingAddressLine() {
+        return MailingAddressLine;
     }
 
-    public void setMailingAddressLine1(String MailingAddressLine1) {
-        this.MailingAddressLine1 = MailingAddressLine1;
-    }
-
-    public String getMailingAddressLine2() {
-        return MailingAddressLine2;
-    }
-
-    public void setMailingAddressLine2(String MailingAddressLine2) {
-        this.MailingAddressLine2 = MailingAddressLine2;
+    public void setMailingAddressLine(String MailingAddressLine) {
+        this.MailingAddressLine = MailingAddressLine;
     }
 
     public String getCity() {
@@ -115,19 +148,19 @@ public class Person {
         this.DateOfBirth = DateOfBirth;
     }
 
-    public Long getTelephoneNumber() {
+    public Integer getTelephoneNumber() {
         return TelephoneNumber;
     }
 
-    public void setTelephoneNumber(Long TelephoneNumber) {
+    public void setTelephoneNumber(Integer TelephoneNumber) {
         this.TelephoneNumber = TelephoneNumber;
     }
 
-    public Long getCellPhoneNumber() {
+    public Integer getCellPhoneNumber() {
         return CellPhoneNumber;
     }
 
-    public void setCellPhoneNumber(Long CellPhoneNumber) {
+    public void setCellPhoneNumber(Integer CellPhoneNumber) {
         this.CellPhoneNumber = CellPhoneNumber;
     }
 
@@ -147,11 +180,11 @@ public class Person {
         this.EmailAddress = EmailAddress;
     }
 
-    public Long getSocialSecurityNumber() {
+    public Integer getSocialSecurityNumber() {
         return SocialSecurityNumber;
     }
 
-    public void setSocialSecurityNumber(Long SocialSecurityNumber) {
+    public void setSocialSecurityNumber(Integer SocialSecurityNumber) {
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
 
@@ -171,11 +204,11 @@ public class Person {
         this.HealthPlanBeneficiaryNumber = HealthPlanBeneficiaryNumber;
     }
 
-    public Long getBankAccountNumber() {
+    public Integer getBankAccountNumber() {
         return BankAccountNumber;
     }
 
-    public void setBankAccountNumber(Long BankAccountNumber) {
+    public void setBankAccountNumber(Integer BankAccountNumber) {
         this.BankAccountNumber = BankAccountNumber;
     }
 
@@ -218,9 +251,5 @@ public class Person {
     public void setIPAddress(String IPAddress) {
         this.IPAddress = IPAddress;
     }
-    
-    
-    
-    
-    
+   
 }
