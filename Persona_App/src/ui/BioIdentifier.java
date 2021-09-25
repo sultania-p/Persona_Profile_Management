@@ -14,7 +14,7 @@ import javax.swing.*;
  *
  * @author piyus
  */
-public class BiometricImage {
+public class BioIdentifier {
     String imageload()  
   {
     JFrame editorFrame = new JFrame("Image Demo");

@@ -17,7 +17,6 @@ import javax.swing.*;
 public class Person {
     
     private String FirstName;
-    private String MiddleName;
     private String LastName;
     private String MailingAddressLine;
     private String City;
@@ -25,11 +24,11 @@ public class Person {
     private Integer ZipCode;
     private String Country;
     private String DateOfBirth;
-    private Integer TelephoneNumber;
-    private Integer CellPhoneNumber;
-    private Integer FaxNumber;
+    private Long TelephoneNumber;
+    private Long CellPhoneNumber;
+    private Long FaxNumber;
     private String EmailAddress;
-    private Integer SocialSecurityNumber;
+    private String SocialSecurityNumber;
     private String MedicalRecordNumber;
     private String HealthPlanBeneficiaryNumber;
     private Integer BankAccountNumber;
@@ -82,14 +81,6 @@ public class Person {
 
     public void setFirstName(String FirstName) {
         this.FirstName = FirstName;
-    }
-
-    public String getMiddleName() {
-        return MiddleName;
-    }
-
-    public void setMiddleName(String MiddleName) {
-        this.MiddleName = MiddleName;
     }
 
     public String getLastName() {
@@ -148,27 +139,27 @@ public class Person {
         this.DateOfBirth = DateOfBirth;
     }
 
-    public Integer getTelephoneNumber() {
+    public Long getTelephoneNumber() {
         return TelephoneNumber;
     }
 
-    public void setTelephoneNumber(Integer TelephoneNumber) {
+    public void setTelephoneNumber(Long TelephoneNumber) {
         this.TelephoneNumber = TelephoneNumber;
     }
 
-    public Integer getCellPhoneNumber() {
+    public Long getCellPhoneNumber() {
         return CellPhoneNumber;
     }
 
-    public void setCellPhoneNumber(Integer CellPhoneNumber) {
+    public void setCellPhoneNumber(Long CellPhoneNumber) {
         this.CellPhoneNumber = CellPhoneNumber;
     }
 
-    public Integer getFaxNumber() {
+    public Long getFaxNumber() {
         return FaxNumber;
     }
 
-    public void setFaxNumber(Integer FaxNumber) {
+    public void setFaxNumber(Long FaxNumber) {
         this.FaxNumber = FaxNumber;
     }
 
@@ -180,11 +171,11 @@ public class Person {
         this.EmailAddress = EmailAddress;
     }
 
-    public Integer getSocialSecurityNumber() {
+    public String getSocialSecurityNumber() {
         return SocialSecurityNumber;
     }
 
-    public void setSocialSecurityNumber(Integer SocialSecurityNumber) {
+    public void setSocialSecurityNumber(String SocialSecurityNumber) {
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
 
