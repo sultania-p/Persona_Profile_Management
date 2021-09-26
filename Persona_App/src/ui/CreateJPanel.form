@@ -56,7 +56,6 @@
                           <Component id="lblIPAddress" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblFirstName" alignment="0" max="32767" attributes="0"/>
                           <Component id="lblLastName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblBiometricIdentifier" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="lblMandatoryNotification" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
@@ -92,7 +91,6 @@
                               <Component id="txtDeviceIdentifiersAndSerialNumbers" linkSize="4" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                               <Component id="txtLinkedInAddress" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                               <Component id="txtIPAddress" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                              <Component id="btnBiometricIdentifier" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnSave" min="-2" pref="188" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -300,15 +298,10 @@
                           </Group>
                           <Component id="lblIPAddressValidation" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblBiometricIdentifier" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="btnBiometricIdentifier" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
                   <Component id="lblEmailAddressValidation" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   <Component id="lblMandatoryNotification" min="-2" pref="15" max="-2" attributes="0"/>
@@ -852,23 +845,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIPAddressActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIPAddressKeyPressed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblBiometricIdentifier">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Biometric Identifier:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnBiometricIdentifier">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Upload biometric (e.g. thumbprints, retinal)"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBiometricIdentifierActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblIPAddressValidation">

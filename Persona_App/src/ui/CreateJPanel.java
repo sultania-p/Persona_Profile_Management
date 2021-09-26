@@ -215,8 +215,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblLinkedInAddressValidation = new javax.swing.JLabel();
         lblIPAddress = new javax.swing.JLabel();
         txtIPAddress = new javax.swing.JTextField();
-        lblBiometricIdentifier = new javax.swing.JLabel();
-        btnBiometricIdentifier = new javax.swing.JButton();
         lblIPAddressValidation = new javax.swing.JLabel();
         lblCountryValidation = new javax.swing.JLabel();
         lblSocialSecurityNumberValidation = new javax.swing.JLabel();
@@ -577,17 +575,6 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblBiometricIdentifier.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblBiometricIdentifier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblBiometricIdentifier.setText("Biometric Identifier:");
-
-        btnBiometricIdentifier.setText("Upload biometric (e.g. thumbprints, retinal)");
-        btnBiometricIdentifier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBiometricIdentifierActionPerformed(evt);
-            }
-        });
-
         lblIPAddressValidation.setForeground(new java.awt.Color(255, 51, 51));
         lblIPAddressValidation.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
@@ -637,8 +624,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblLinkedInAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblIPAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,7 +655,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addComponent(txtDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtLinkedInAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtIPAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(46, 46, 46)))))
@@ -827,13 +812,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblIPAddress)
                                     .addComponent(txtIPAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblIPAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBiometricIdentifier)))
+                            .addComponent(lblIPAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblEmailAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSave)
                     .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1073,7 +1054,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         {
             txtZipCode.setEditable(true);
             lblZipCodeValidation.setText(""); // To disable the warnings once user feed correct character
-
         }
     }//GEN-LAST:event_txtZipCodeKeyPressed
 
@@ -1224,10 +1204,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIPAddressActionPerformed
 
-    private void btnBiometricIdentifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiometricIdentifierActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBiometricIdentifierActionPerformed
-
     private void txtIPAddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIPAddressKeyPressed
         // TODO add your handling code here:
         
@@ -1259,12 +1235,10 @@ public class CreateJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBiometricIdentifier;
     private javax.swing.JButton btnPhotograph;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel lblBankAccountNumber;
     private javax.swing.JLabel lblBankAccountNumberValidation;
-    private javax.swing.JLabel lblBiometricIdentifier;
     private javax.swing.JLabel lblCellPhoneNumber;
     private javax.swing.JLabel lblCellPhoneNumberValidation;
     private javax.swing.JLabel lblCertificateOrLicenseNumber;

@@ -80,8 +80,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLinkedInAddress = new javax.swing.JTextField();
         lblIPAddress = new javax.swing.JLabel();
         txtIPAddress = new javax.swing.JTextField();
-        lblIPAddress1 = new javax.swing.JLabel();
-        btnBiometricIdentifier = new javax.swing.JButton();
         lblMandatoryNotification = new javax.swing.JLabel();
 
         lblTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 15)); // NOI18N
@@ -309,17 +307,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblIPAddress1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblIPAddress1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblIPAddress1.setText("Biometric Identifier:");
-
-        btnBiometricIdentifier.setText("Retrieve biometric");
-        btnBiometricIdentifier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBiometricIdentifierActionPerformed(evt);
-            }
-        });
-
         lblMandatoryNotification.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMandatoryNotification.setForeground(new java.awt.Color(255, 0, 0));
         lblMandatoryNotification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -347,7 +334,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(lblVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 40, Short.MAX_VALUE)
+                                .addGap(0, 68, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblCertificateOrLicenseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -366,8 +353,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(lblBankAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPhotograph, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lblLinkedInAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblIPAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblIPAddress1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblIPAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(80, 80, 80)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCity)
@@ -388,9 +374,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(btnPhotograph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtCertificateOrLicenseNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
                             .addComponent(txtLinkedInAddress)
-                            .addComponent(txtIPAddress)
-                            .addComponent(btnBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(190, Short.MAX_VALUE))
+                            .addComponent(txtIPAddress))))
+                .addContainerGap(218, Short.MAX_VALUE))
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -493,11 +478,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIPAddress)
                     .addComponent(txtIPAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIPAddress1)
-                    .addComponent(btnBiometricIdentifier))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -597,13 +578,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIPAddressActionPerformed
 
-    private void btnBiometricIdentifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiometricIdentifierActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBiometricIdentifierActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBiometricIdentifier;
     private javax.swing.JButton btnPhotograph;
     private javax.swing.JLabel lblBankAccountNumber;
     private javax.swing.JLabel lblCellPhoneNumber;
@@ -617,7 +593,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHealthPlanBeneficiaryNumber;
     private javax.swing.JLabel lblIPAddress;
-    private javax.swing.JLabel lblIPAddress1;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblLinkedInAddress;
     private javax.swing.JLabel lblMailingAddressLine;
