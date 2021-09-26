@@ -34,6 +34,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     public String dateOfBirthError = "";
     public String ssnError = "";
     public String ipAddressError = "";
+    public String emailAddressError = "";
 //    public Integer errorIndicatorTelephone = 0;
 //    public Integer errorIndicatorCellphone = 0;
 //    public Integer errorIndicatorFaxnumber = 0;
@@ -109,26 +110,43 @@ public class CreateJPanel extends javax.swing.JPanel {
     }
     
     private void ssnDataValidation(){
-        if (!Pattern.matches("^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$", txtSocialSecurityNumber.getText())) {
+        if (!txtSocialSecurityNumber.getText().isEmpty() && !Pattern.matches("^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$", txtSocialSecurityNumber.getText())) {
             isInValid = true;
             ssnError = "SSN";
         }
         else{
+            isInValid = false;
             ssnError = "";
         }
     }
     
     private void ipAddress(){
         String ipAddress = "^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$";
-            if (!txtIPAddress.getText().matches(ipAddress)){
+        if (!txtIPAddress.getText().isEmpty() && !txtIPAddress.getText().matches(ipAddress)){
                 isInValid = true;
-                ipAddressError = "IPAddress";
-            }
-            else
-            {
-                ipAddressError = "";
+                ipAddressError = "IPAddress"; 
+        }    
+        else{
+            isInValid = false;
+            ipAddressError = "";
+        }
+    }
+    
+    private void emailAddress(){
+        String emailAddress = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+            if (txtEmailAddress.getText().isEmpty()){
+                isInValid = true;
+                emailAddressError = "emailAddressEmpty";   
+            }    
+            else if (!txtEmailAddress.getText().isEmpty() && !txtEmailAddress.getText().matches(emailAddress)){
+                isInValid = true;       
+                emailAddressError = "emailAddress";  
+                    }
+            else{
+                emailAddressError = ""; 
             }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,70 +220,92 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblIPAddressValidation = new javax.swing.JLabel();
         lblCountryValidation = new javax.swing.JLabel();
         lblSocialSecurityNumberValidation = new javax.swing.JLabel();
+        lblEmailAddressValidation = new javax.swing.JLabel();
+        lblMandatoryNotification = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(500, 475));
 
-        lblTitle.setFont(new java.awt.Font("Lucida Bright", 1, 15)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 15)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Create Persona Profile");
 
+        lblFirstName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFirstName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblFirstName.setText("First Name:");
+        lblFirstName.setText("First Name*:");
 
+        lblLastName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblLastName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblLastName.setText("Last Name:");
+        lblLastName.setText("Last Name*:");
 
+        lblMailingAddressLine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMailingAddressLine.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMailingAddressLine.setText("Mailing Address Line:");
 
+        lblCity.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCity.setText("City:");
 
+        lblState.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblState.setText("State:");
 
+        lblZipCode.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblZipCode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblZipCode.setText("Zip Code:");
 
+        lblCountry.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCountry.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCountry.setText("Country:");
 
+        lblDateOfBirth.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDateOfBirth.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDateOfBirth.setText("Date Of Birth:");
+        lblDateOfBirth.setText("Date Of Birth*:");
 
+        lblTelephoneNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTelephoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTelephoneNumber.setText("Telephone Number:");
+        lblTelephoneNumber.setText("Telephone Number*:");
 
+        lblCellPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCellPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblCellPhoneNumber.setText("Cell Phone Number:");
+        lblCellPhoneNumber.setText("Cell Phone Number*:");
 
+        lblFaxNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFaxNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblFaxNumber.setText("Fax Number:");
 
+        lblEmailAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblEmailAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEmailAddress.setText("Email Address:");
+        lblEmailAddress.setText("Email Address*:");
 
+        lblSocialSecurityNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblSocialSecurityNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSocialSecurityNumber.setText("Social Security Number:");
 
+        lblMedicalRecordNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMedicalRecordNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMedicalRecordNumber.setText("Medical Record Number:");
 
+        lblHealthPlanBeneficiaryNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblHealthPlanBeneficiaryNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblHealthPlanBeneficiaryNumber.setText("Health Plan Beneficiary Number:");
 
+        lblBankAccountNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblBankAccountNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBankAccountNumber.setText("Bank Account Number:");
 
+        lblPhotograph.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblPhotograph.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPhotograph.setText("Photograph:");
 
+        lblCertificateOrLicenseNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCertificateOrLicenseNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCertificateOrLicenseNumber.setText("Certificate Or License Number:");
 
+        lblVehicleIdentifiersAndSerialNumbers.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblVehicleIdentifiersAndSerialNumbers.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblVehicleIdentifiersAndSerialNumbers.setText("Vehicle Identifiers And Serial Numbers:");
 
+        lblDeviceIdentifiersAndSerialNumbers.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDeviceIdentifiersAndSerialNumbers.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDeviceIdentifiersAndSerialNumbers.setText("Device Identifiers And Serial Numbers:");
 
@@ -507,6 +547,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblBankAccountNumberValidation.setForeground(new java.awt.Color(255, 51, 51));
         lblBankAccountNumberValidation.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        lblLinkedInAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblLinkedInAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLinkedInAddress.setText("LinkedIn Address:");
 
@@ -520,6 +561,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblLinkedInAddressValidation.setForeground(new java.awt.Color(255, 51, 51));
         lblLinkedInAddressValidation.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        lblIPAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblIPAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblIPAddress.setText("IP Address:");
 
@@ -535,6 +577,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblBiometricIdentifier.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblBiometricIdentifier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBiometricIdentifier.setText("Biometric Identifier:");
 
@@ -554,40 +597,49 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblSocialSecurityNumberValidation.setForeground(new java.awt.Color(255, 51, 51));
         lblSocialSecurityNumberValidation.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        lblEmailAddressValidation.setForeground(new java.awt.Color(255, 51, 51));
+        lblEmailAddressValidation.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+
+        lblMandatoryNotification.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblMandatoryNotification.setForeground(new java.awt.Color(255, 0, 0));
+        lblMandatoryNotification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMandatoryNotification.setText("(Fields marked * are mandatory)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPhotograph, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblMedicalRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblHealthPlanBeneficiaryNumber)
-                        .addComponent(lblSocialSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblBankAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCellPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblFaxNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblMailingAddressLine, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                            .addComponent(lblFirstName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPhotograph, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMedicalRecordNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHealthPlanBeneficiaryNumber, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSocialSecurityNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBankAccountNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCellPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFaxNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTelephoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDateOfBirth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCountry, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblZipCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblState, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMailingAddressLine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblCertificateOrLicenseNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblLinkedInAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblIPAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblIPAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -612,14 +664,15 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCertificateOrLicenseNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLinkedInAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIPAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtCertificateOrLicenseNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtLinkedInAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtIPAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(btnPhotograph, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -639,8 +692,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblIPAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblZipCodeValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCountryValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSocialSecurityNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(lblSocialSecurityNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmailAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtBankAccountNumber, txtCellPhoneNumber, txtCertificateOrLicenseNumber, txtCity, txtCountry, txtDateOfBirth, txtDeviceIdentifiersAndSerialNumbers, txtEmailAddress, txtFaxNumber, txtFirstName, txtHealthPlanBeneficiaryNumber, txtLastName, txtMailingAddressLine, txtMedicalRecordNumber, txtSocialSecurityNumber, txtState, txtTelephoneNumber, txtVehicleIdentifiersAndSerialNumbers, txtZipCode});
@@ -648,10 +702,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -719,64 +774,69 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblFaxNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblDateOfBirthValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmailAddress)
-                    .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblSocialSecurityNumber)
-                        .addComponent(txtSocialSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblSocialSecurityNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMedicalRecordNumber)
-                    .addComponent(txtMedicalRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHealthPlanBeneficiaryNumber)
-                    .addComponent(txtHealthPlanBeneficiaryNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblBankAccountNumber)
-                        .addComponent(txtBankAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblBankAccountNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPhotograph)
-                    .addComponent(lblPhotograph, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCertificateOrLicenseNumber)
-                    .addComponent(txtCertificateOrLicenseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVehicleIdentifiersAndSerialNumbers)
-                    .addComponent(txtVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDeviceIdentifiersAndSerialNumbers)
-                    .addComponent(txtDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmailAddress)
+                            .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblLinkedInAddress)
-                                .addComponent(txtLinkedInAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblLinkedInAddressValidation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblSocialSecurityNumber)
+                                .addComponent(txtSocialSecurityNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblSocialSecurityNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIPAddress)
-                            .addComponent(txtIPAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblIPAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBiometricIdentifier))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSave)
+                            .addComponent(lblMedicalRecordNumber)
+                            .addComponent(txtMedicalRecordNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHealthPlanBeneficiaryNumber)
+                            .addComponent(txtHealthPlanBeneficiaryNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblBankAccountNumber)
+                                .addComponent(txtBankAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblBankAccountNumberValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnPhotograph)
+                            .addComponent(lblPhotograph, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCertificateOrLicenseNumber)
+                            .addComponent(txtCertificateOrLicenseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblVehicleIdentifiersAndSerialNumbers)
+                            .addComponent(txtVehicleIdentifiersAndSerialNumbers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDeviceIdentifiersAndSerialNumbers)
+                            .addComponent(txtDeviceIdentifiersAndSerialNumbers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblLinkedInAddress)
+                                        .addComponent(txtLinkedInAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblLinkedInAddressValidation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(2, 2, 2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIPAddress)
+                                    .addComponent(txtIPAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblIPAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblBiometricIdentifier, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBiometricIdentifier)))
+                    .addComponent(lblEmailAddressValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSave)
+                    .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -824,10 +884,13 @@ public class CreateJPanel extends javax.swing.JPanel {
         lastNameValidation();
         dateOfBirthValidation();
         ipAddress();
-    
+        emailAddress();
+        
+        // Validations for text fields
         if (isInValid || digiTeleError == "Telephone number" || 
                 digiCellError == "Cellphone number" || firstNameError == "First Name" || lastNameError == "Last Name" || 
-                dateOfBirthError == "Date Of Birth" || ssnError == "SSN" || ipAddressError == "IPAddress"){   
+                dateOfBirthError == "Date Of Birth" || ssnError == "SSN" || ipAddressError == "IPAddress" || 
+                emailAddressError == "emailAddressEmpty" || emailAddressError == "emailAddress"){   
                     if((digiCount == 0 || digiCount != 10) && digiTeleError == "Telephone number" && digiCellError == ""){
                                 lblTelephoneNumberValidation.setText("Incorrect Telephone number!");
                     }
@@ -853,6 +916,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                     if(ipAddressError == "IPAddress"){
                         lblIPAddressValidation.setText("Incorrect IP Address format!");
                     }
+                    if(emailAddressError == "emailAddressEmpty"){
+                        lblEmailAddressValidation.setText("Email address cannot be empty!");
+                    }
+                    if(emailAddressError == "emailAddress"){
+                        lblEmailAddressValidation.setText("Incorrect email Address!");
+                    }
                     digiCellError = "";
                     digiTeleError = "";
                     firstNameError = "";
@@ -860,6 +929,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     dateOfBirthError = "";
                     ssnError = "";
                     ipAddressError = "";
+                    emailAddressError = "";
         }       
         else{
             
@@ -871,6 +941,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             dateOfBirthValidation();
             ssnDataValidation();
             ipAddress();
+            emailAddress();
             
             digiCellError = "";
             digiTeleError = "";
@@ -879,7 +950,9 @@ public class CreateJPanel extends javax.swing.JPanel {
             dateOfBirthError = "";
             ssnError = "";
             ipAddressError = "";
+            emailAddressError = "";
             
+            // start setting values to attributes
             person.setFirstName(txtFirstName.getText());
             person.setLastName(txtLastName.getText());
             person.setMailingAddressLine(txtMailingAddressLine.getText());
@@ -1203,6 +1276,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDateOfBirthValidation;
     private javax.swing.JLabel lblDeviceIdentifiersAndSerialNumbers;
     private javax.swing.JLabel lblEmailAddress;
+    private javax.swing.JLabel lblEmailAddressValidation;
     private javax.swing.JLabel lblFaxNumber;
     private javax.swing.JLabel lblFaxNumberValidation;
     private javax.swing.JLabel lblFirstName;
@@ -1215,6 +1289,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblLinkedInAddress;
     private javax.swing.JLabel lblLinkedInAddressValidation;
     private javax.swing.JLabel lblMailingAddressLine;
+    private javax.swing.JLabel lblMandatoryNotification;
     private javax.swing.JLabel lblMedicalRecordNumber;
     private javax.swing.JLabel lblPhotograph;
     private javax.swing.JLabel lblSocialSecurityNumber;

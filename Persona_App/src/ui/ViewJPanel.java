@@ -82,68 +82,89 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtIPAddress = new javax.swing.JTextField();
         lblIPAddress1 = new javax.swing.JLabel();
         btnBiometricIdentifier = new javax.swing.JButton();
+        lblMandatoryNotification = new javax.swing.JLabel();
 
-        lblTitle.setFont(new java.awt.Font("Lucida Bright", 1, 15)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 15)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("View Persona Profile");
 
+        lblFirstName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFirstName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblFirstName.setText("First Name:");
+        lblFirstName.setText("First Name*:");
 
+        lblLastName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblLastName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblLastName.setText("Last Name:");
+        lblLastName.setText("Last Name*:");
 
+        lblMailingAddressLine.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMailingAddressLine.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMailingAddressLine.setText("Mailing Address Line:");
 
+        lblCity.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCity.setText("City:");
 
+        lblState.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblState.setText("State:");
 
+        lblZipCode.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblZipCode.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblZipCode.setText("Zip Code:");
 
+        lblCountry.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCountry.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCountry.setText("Country:");
 
+        lblDateOfBirth.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDateOfBirth.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDateOfBirth.setText("Date Of Birth:");
+        lblDateOfBirth.setText("Date Of Birth*:");
 
+        lblTelephoneNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblTelephoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTelephoneNumber.setText("Telephone Number:");
+        lblTelephoneNumber.setText("Telephone Number*:");
 
+        lblCellPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCellPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblCellPhoneNumber.setText("Cell Phone Number:");
+        lblCellPhoneNumber.setText("Cell Phone Number*:");
 
+        lblFaxNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFaxNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblFaxNumber.setText("Fax Number:");
 
+        lblEmailAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblEmailAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEmailAddress.setText("Email Address:");
+        lblEmailAddress.setText("Email Address*:");
 
+        lblSocialSecurityNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblSocialSecurityNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSocialSecurityNumber.setText("Social Security Number:");
 
+        lblMedicalRecordNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblMedicalRecordNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblMedicalRecordNumber.setText("Medical Record Number:");
 
+        lblHealthPlanBeneficiaryNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblHealthPlanBeneficiaryNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblHealthPlanBeneficiaryNumber.setText("Health Plan Beneficiary Number:");
 
+        lblBankAccountNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblBankAccountNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblBankAccountNumber.setText("Bank Account Number:");
 
+        lblPhotograph.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblPhotograph.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPhotograph.setText("Photograph:");
 
+        lblCertificateOrLicenseNumber.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCertificateOrLicenseNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCertificateOrLicenseNumber.setText("Certificate Or License Number:");
 
+        lblVehicleIdentifiersAndSerialNumbers.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblVehicleIdentifiersAndSerialNumbers.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblVehicleIdentifiersAndSerialNumbers.setText("Vehicle Identifiers And SerialNumbers:");
 
+        lblDeviceIdentifiersAndSerialNumbers.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblDeviceIdentifiersAndSerialNumbers.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDeviceIdentifiersAndSerialNumbers.setText("Device Identifiers And Serial Numbers:");
 
@@ -268,6 +289,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblLinkedInAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblLinkedInAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblLinkedInAddress.setText("LinkedIn Address:");
 
@@ -277,6 +299,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblIPAddress.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblIPAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblIPAddress.setText("IP Address:");
 
@@ -286,6 +309,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblIPAddress1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblIPAddress1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblIPAddress1.setText("Biometric Identifier:");
 
@@ -295,6 +319,11 @@ public class ViewJPanel extends javax.swing.JPanel {
                 btnBiometricIdentifierActionPerformed(evt);
             }
         });
+
+        lblMandatoryNotification.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblMandatoryNotification.setForeground(new java.awt.Color(255, 0, 0));
+        lblMandatoryNotification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMandatoryNotification.setText("(Fields marked * are mandatory)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -363,6 +392,10 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(btnBiometricIdentifier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(190, Short.MAX_VALUE))
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtBankAccountNumber, txtCellPhoneNumber, txtCertificateOrLicenseNumber, txtCity, txtCountry, txtDateOfBirth, txtDeviceIdentifiersAndSerialNumbers, txtEmailAddress, txtFaxNumber, txtFirstName, txtHealthPlanBeneficiaryNumber, txtLastName, txtMailingAddressLine, txtMedicalRecordNumber, txtSocialSecurityNumber, txtState, txtTelephoneNumber, txtVehicleIdentifiersAndSerialNumbers, txtZipCode});
@@ -370,7 +403,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(4, 4, 4)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -464,7 +497,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIPAddress1)
                     .addComponent(btnBiometricIdentifier))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblMandatoryNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtBankAccountNumber, txtCellPhoneNumber, txtCertificateOrLicenseNumber, txtCity, txtCountry, txtDateOfBirth, txtDeviceIdentifiersAndSerialNumbers, txtEmailAddress, txtFaxNumber, txtFirstName, txtHealthPlanBeneficiaryNumber, txtLastName, txtMailingAddressLine, txtMedicalRecordNumber, txtSocialSecurityNumber, txtTelephoneNumber, txtVehicleIdentifiersAndSerialNumbers, txtZipCode});
@@ -586,6 +621,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblLinkedInAddress;
     private javax.swing.JLabel lblMailingAddressLine;
+    private javax.swing.JLabel lblMandatoryNotification;
     private javax.swing.JLabel lblMedicalRecordNumber;
     private javax.swing.JLabel lblPhotograph;
     private javax.swing.JLabel lblSocialSecurityNumber;
